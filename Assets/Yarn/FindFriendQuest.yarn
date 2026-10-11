@@ -1,0 +1,86 @@
+﻿title: FindFriendQuest
+---
+This is an example of a Yarn Spinner script. Write your dialogue here!
+===
+title: QuestGiver
+---
+<<declare $questStarted = false>>
+<<declare $foundFriend1 = false>>
+<<declare $foundFriend2 = false>>
+<<declare $questComplete = false>>
+
+<<if $questComplete>>
+    <<portrait Emi>>
+    Emi: You found both of them! Thank you so much!
+    <<stop>>
+<<elseif $questStarted>>
+    <<if $foundFriend1 and $foundFriend2>>
+        <<portrait Emi>>
+        Emi: You found them both! I knew I could count on you.
+        <<portrait Emi>>
+        Mokki: I'm glad I could help!
+        <<set $questComplete = true>>
+        <<portrait Emi>>
+        Emi: Thanks for bringing our friends back together!
+        <<stop>>
+    <<else>>
+        <<portrait Emi>>
+        Emi: Have you found my friends yet?
+        <<if not $foundFriend1 and not $foundFriend2>>
+            Emi: You haven't found either of them yet. Please keep looking!
+        <<elseif not $foundFriend1>>
+            Emi: You've found one friend, but Friend 1 is still missing.
+        <<elseif not $foundFriend2>>
+            Emi: You've found one friend, but Friend 2 is still missing.
+        <<endif>>
+        <<portrait Mokki>>
+        -> I'll keep looking.
+            <<stop>>
+    <<endif>>
+<<else>>
+    <<portrait Emi>>
+    Emi: Hey! I can't find my two friends anywhere.
+    Emi: Could you go find them for me?
+    <<portrait Mokki>>
+    -> I'll find them!
+        <<set $questStarted = true>>
+        <<portrait Emi>>
+        Emi: Thank you! Please talk to both of them.
+        <<stop>>
+    <<portrait Mokki>>
+    -> Sorry, not right now.
+        <<portrait Emi>>
+        Emi: Okay. Let me know if you change your mind.
+        <<stop>>
+<<endif>>
+===
+
+title: Friend1
+---
+<<portrait Friend1>>
+<<if not $questStarted>>
+    Friend1: Hey! What's up?
+<<elseif $foundFriend1>>
+    Friend1: We've already talked! Go tell our friend I'm here.
+<<else>>
+    Friend1: Oh, you're looking for me?
+    Friend1: I'm right here! Thanks for checking on me.
+    <<set $foundFriend1 = true>>
+    Friend1: Go find our other friend, too!
+<<endif>>
+===
+
+title: Friend2
+---
+<<portrait Friend2>>
+<<if not $questStarted>>
+    Friend2: Hey! What's up?
+<<elseif $foundFriend2>>
+    Friend2: You've already found me! Go tell our friend.
+<<else>>
+    Friend2: Oh, our friend sent you to find me?
+    Friend2: I'm okay! Thanks for checking.
+    <<set $foundFriend2 = true>>
+    Friend2: Now go find our other friend!
+<<endif>>
+===
