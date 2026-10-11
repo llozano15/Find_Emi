@@ -8,8 +8,8 @@ public class DialogPortraits : MonoBehaviour
     [SerializeField] private Image portraitImage;
 
     [Header("Character Portraits")]
-    [SerializeField] private Sprite playerPortrait;
-    [SerializeField] private Sprite questGiverPortrait;
+    [SerializeField] private Sprite mokkiPortrait;
+    [SerializeField] private Sprite emiPortrait;
     [SerializeField] private Sprite friend1Portrait;
     [SerializeField] private Sprite friend2Portrait;
 
@@ -24,12 +24,12 @@ public class DialogPortraits : MonoBehaviour
 
         switch (character.ToLowerInvariant())
         {
-            case "player":
-                portraitImage.sprite = playerPortrait;
+            case "mokki":
+                portraitImage.sprite = mokkiPortrait;
                 break;
 
-            case "questgiver":
-                portraitImage.sprite = questGiverPortrait;
+            case "emi":
+                portraitImage.sprite = emiPortrait;
                 break;
 
             case "friend1":
