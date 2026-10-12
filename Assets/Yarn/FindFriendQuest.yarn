@@ -17,7 +17,7 @@ title: QuestGiver
     <<if $foundFriend1 and $foundFriend2>>
         <<portrait Emi>>
         Emi: You found them both! I knew I could count on you.
-        <<portrait Emi>>
+        <<portrait Mokki>>
         Mokki: I'm glad I could help!
         <<set $questComplete = true>>
         <<portrait Emi>>
