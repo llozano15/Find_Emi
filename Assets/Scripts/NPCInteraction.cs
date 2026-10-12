@@ -10,7 +10,7 @@ public class NPCInteraction : MonoBehaviour
 
     [Header("Interaction")]
     [SerializeField] private float interactionDistance = 3f;
-    [SerializeField] private string nodeName = "QuestGiver";
+    [SerializeField] private string nodeName = "Emi";
 
     private void Update()
     {
